@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gestión de tareas</title>
+    <link rel="stylesheet" href="./resources/css/tailwind.css">
+    <script defer type="module" src="./resources/js/index.js"></script>
+    <script defer src="./node_modules/luxon/build/global/luxon.min.js"></script>
+</head>
+
+<body class="h-screen w-screen relative overflow-hidden bg-gray-light text-base">
+
+    <div class="hidden"> <!-- se hace porque tailwind presenta problemas al mostrar los colores del componente Tabulador-->
+        <div class="bg-red-500 text-danger">r</div>
+        <div class="bg-blue-500 text-info">r</div>
+        <div class="bg-yellow-400 text-warning">r</div>
+        <div class="bg-green-500 text-success">r</div>
+    </div>
+
+
+    <div id="on-top" class="">
+        <!-- todo lo del elemento toast como en el proyecto anterior -->
+    </div>
+
+    <nav class="navbar navbar-expand-md bg-primary flex justify-between items-center md:justify-start">
+        <!-- todo lo del elemento navbar -->
+        <div class="p-1 mr-14 flex items-center">
+            <i class="bi bi-list-task mr-2 text-gray-light text-5xl  hover:cursor-pointer"></i>
+            <h3 class="text-gray-light text-4xl  hover:cursor-pointer">TaskApp</h3>
+        </div>
+        <ul id="menu" class="hidden justify-between md:flex h-full">
+            <li class="hover:bg-gray-dark h-full rounded">
+                <h3 id="inicio" class="text-gray-light w-full h-full  hover:cursor-pointer px-3">Inicio</h3>
+            </li>
+            <li class="hover:bg-gray-dark h-full rounded">
+                <h3 id="misTareas"class="text-gray-light hover:text-white hover:cursor-pointer mx-3">Mis tareas</h3>
+            </li>
+            <li class="hover:bg-gray-dark h-full rounded">
+                <h3 id="acercaDe"class="text-gray-light hover:text-white hover:cursor-pointer mx-3">Acerca de...</h3>
+            </li>
+        </ul>
+        <div id="icono" class="text-gray-light px-2 border-gray-light border rounded-full m-1 mx-3 flex md:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+            </svg>
+        </div>
+    </nav>
+
+    <main class="mb-6 h-[85%] overflow-y-auto">
+        <!-- sin contenido, se genera dinámicamente -->
+    </main>
+
+    <footer class=" bg-primary text-center py-2 text-gray-light absolute insert-x-0 bottom-0 w-screen">
+        <!-- este elemento debe quedar fijo en la parte inferior de la página -->
+        <h4>Desarrollo y diseño de carlo.cuesta@ucaldas.edu.co</h4>
+    </footer>
+
+    <div id="utilities" class="hidden">
+        <div id="utilities" class="hidden">
+            <div id="card">
+                <article id="card-$0" class="overflow-hidden rounded shadow-lg ">
+                    <a href="$1" target="_blank" rel="noopener noreferrer">
+                        <div class="relative">
+                            <img class="w-full" $2 alt="Falta la foto">
+                            <div
+                                class="absolute top-0 right-0 bottom-0 left-0 bg-gray-900 opacity-25 transition duration-300 hover:bg-transparent">
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="px-1.5 py-4">
+                        <a href="$3" target="_blank" rel="noopener noreferrer"
+                            class="inline-block text-lg font-semibold transition duration-500 ease-in-out hover:text-indigo-600">
+                            $4
+                        </a>
+                        <p class="text-sm text-gray-500">$5</p>
+                    </div>
+
+                    <div class="Ver flex flex-row justify-between px-6 py-4">
+                        <span class="flex flex-row items-center py-1 mr-1 text-sm text-gray-900 font-regular">
+                            <svg height="13px" width="13px" version="1.1" id="Layer_1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                                <g>
+                                    <path d="M256,0C114.837,0,0,114.837,0,256s114.837,256,256,256s256-114.837,256-256S397.163,0,256,0z M277.333,256
+                                            c0,11.797-9.536,21.333-21.333,21.333h-85.333c-11.797,0-21.333-9.536-21.333-21.333s9.536-21.333,21.333-21.333h64v-128
+                                            c0-11.797,9.536-21.333,21.333-21.333s21.333,9.536,21.333,21.333V256z" />
+                                </g>
+                            </svg>
+                            <span class="ml-1">$6</span>
+                        </span>
+                        <a id="modal-news" href="#"
+                            class="flex flex-row items-center py-1 mr-1 text-sm text-gray-900 font-regular">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="13px" width="13px" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <g>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </g>
+                            </svg>
+                            <span class="ml-1">Ver</span>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- a partir de aquí se actualizó toda la capa del modal -->
+
+            <div id="modal" class="overflow-y-auto sm:overflow-hidden flex fixed inset-0 z-50 justify-center items-center bg-blue-900 bg-opacity-30">
+                <div class="relative mx-auto my-6 w-auto md:w-[620px] mt-64 sm:m-auto">
+                    <div class="flex relative flex-col w-full bg-white rounded-lg border-0 shadow-lg outline-none focus:outline-none">
+                        <header class="flex justify-between items-start p-5 rounded-t border-b border-gray-200 border-solid">
+                            <h2 id="title" class="text-3xl font-semibold"></h2>
+                            <button id="close"
+                                class="float-right p-1 ml-auto text-3xl font-semibold leading-none text-gray-300 bg-transparent border-0 outline-none focus:outline-none">
+                                <span class="block w-2 h-0 text-2xl bg-transparent outline-none focus:outline-none">
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                        <line x1="1" y1="11" x2="11" y2="1" stroke="black" stroke-width="2" />
+                                        <line x1="1" y1="1" x2="11" y2="11" stroke="black" stroke-width="2" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </header>
+                        <main id="content" class="overflow-y-auto relative flex-auto p-2 mx-4 my-1 max-h-96">care</main>
+                        <footer
+                            class="flex flex-col justify-end px-8 pt-8 -mx-4 my-3 leading-relaxed border-t sm:pt-4 sm:flex-row">
+                        </footer>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

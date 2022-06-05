@@ -1,0 +1,110 @@
+@import '../../../node_modules/bootstrap-icons/font/bootstrap-icons.css';
+@import  '../../../node_modules/tabulator-tables/dist/css/tabulator.min.css';
+@import '../../../node_modules/suneditor/dist/css/suneditor.min.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary-dark: #00843e;      /* necesario para la vista tipo chec */
+    --primary-default: #99be00;   /* necesario para la vista tipo chec */
+    --primary-light: #b9e401;     /* necesario para la vista tipo chec */
+  
+    --secondary-dark: #627273;
+    --secondary-default: #95a5a6;
+    --secondary-light: #e1f1f2;
+  
+    --success-dark: #008969;
+    --success-default: #18bc9c;
+    --success-light: #97ffff;
+  
+    --info-dark: #0165a8;
+    --info-default: #3498db;
+    --info-light: #b3ffff;
+  
+    --warning-dark: #c06900;
+    --warning-default: #f39c12;
+    --warning-light: #ffff91;
+  
+    --danger-dark: #b41909;
+    --danger-default: #e74c3c;
+    --danger-light: #ffcbbb;
+  
+    --gray-dark: #444444;         /* necesario para la vista tipo chec */
+    --gray-default: #9b9b9e;      /* necesario para la vista tipo chec */
+    --gray-light: #ffffe1;        /* necesario para la vista tipo chec */
+
+  }
+  @layer base {
+    h1 {
+      @apply text-3xl text-primary-dark tracking-tighter leading-10;
+    }
+    h2 {
+      @apply text-2xl text-primary tracking-tight leading-10;
+    }
+    h3 {
+      @apply italic text-xl text-primary leading-10;
+    }
+    p {
+      @apply text-primary;
+    }
+    #content a {
+      @apply no-underline text-blue-700 hover:underline;
+    }
+  }
+
+.btn-blue {
+    @apply bg-blue-500 hover:bg-blue-700 text-white m-3 py-2 px-4 rounded;
+}
+
+.btn-nuevo{
+    @apply bg-primary hover:bg-primary-dark text-gray-light m-3 py-2 px-4 rounded
+}
+
+.btn{
+  @apply py-1 m-1 px-2 rounded-lg bg-opacity-80 text-white hover:bg-opacity-100
+}
+
+.carousel-open:checked+.carousel-item {
+  position: static;
+  opacity: 100;
+}
+
+.carousel-item {
+  -webkit-transition: opacity 0.6s ease-out 0.2s;
+  transition: opacity 0.6s ease-out 0.2s;/* nombre de la propiedad | duración | función | retardo */
+}
+
+#carousel-1:checked~.control-1,
+#carousel-2:checked~.control-2,
+#carousel-4:checked~.control-4,
+#carousel-3:checked~.control-3,
+#carousel-5:checked~.control-5,
+#carousel-6:checked~.control-6,
+#carousel-7:checked~.control-7,
+#carousel-8:checked~.control-8,
+#carousel-9:checked~.control-9,
+#carousel-10:checked~.control-10 {
+  display: block;
+}
+
+.carousel-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 2%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10;
+}
+
+.alert {
+  position: relative;
+  padding: 1rem 1rem;
+  margin-bottom: 1rem;
+  border: 0 solid transparent;
+  border-radius: 0.25rem;
+}

@@ -1,0 +1,25 @@
+{
+  "name": "tailwind",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_ENV=development postcss ./src/tailwind.css -o ./resources/css/tailwind.css -w",
+    "build": "NODE_ENV=production postcss ./src/tailwind.css -o ./resources/css/tailwind.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.3.7",
+    "postcss": "^8.3.9",
+    "postcss-cli": "^9.0.1",
+    "tailwindcss": "^2.2.16"
+  },
+  "dependencies": {
+    "bootstrap-icons": "^1.7.1",
+    "luxon": "^2.1.1",
+    "suneditor": "^2.41.3",
+    "tabulator-tables": "^5.0.7"
+  }
+}
